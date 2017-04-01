@@ -9,7 +9,8 @@
     <application
         android:label="@string/app_name"
         android:icon="@drawable/ic_launcher"
-        android:theme="@android:style/Theme.Holo.Light.DarkActionBar">
+        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+        android:name=".NavDrawerApplication">
 
         <activity
             android:name=".MainActivity"

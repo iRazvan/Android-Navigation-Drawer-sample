@@ -1,15 +1,17 @@
-package net.mobileway.navdrawer;
+package net.mobileway.navdrawer.fragments;
 
 /**
  * Created by Razvan on 31/03/17.
  */
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import net.mobileway.navdrawer.R;
 
 import java.util.Locale;
 
@@ -27,13 +29,17 @@ public class PlanetFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_planet, container, false);
-        int i = getArguments().getInt(ARG_PLANET_NUMBER);
+        int i = 0;
+        if (getArguments() != null) {
+            i = getArguments().getInt(ARG_PLANET_NUMBER);
+        }
         String planet = getResources().getStringArray(R.array.planets_array)[i];
 
         int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()),
                 "drawable", getActivity().getPackageName());
         ((ImageView) rootView.findViewById(R.id.image)).setImageResource(imageId);
         getActivity().setTitle(planet);
+
         return rootView;
     }
 }
